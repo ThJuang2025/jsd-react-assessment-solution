@@ -16,7 +16,9 @@ export default function Home() {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get(apiBase);
+      // const res = await axios.get(apiBase); from K.Niti
+      const res = await axios.get(`${apiBase}/users`, { withCredentials: true });
+
       setUsers(res.data.data);
     } catch {
       alert("Failed to fetch users");
